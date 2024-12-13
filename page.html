@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhi Thakkar Portfolio</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times roman', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, white); /* Subtle gradient */
+            color: #4ba186;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            position: relative;
+            padding: 0 40px;
+            padding-left: 80px;
+          
+        }
+
+        header::after {
+            text-align: center;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Darker overlay for better text visibility */
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            z-index: 1;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            z-index: 1;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        header a {
+            padding: 14px 35px;
+            background-color: #ffffff;
+            color: #4ba186;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            z-index: 1;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header a:hover {
+            background-color: #4ba186;
+            color: white;
+        }
+
+        /* Align Image to the Left */
+        header .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-right: 30px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            object-fit: cover; /* Ensures the image fits the circle */
+        }
+
+        header .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        header .text {
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            z-index: 10;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: right;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4b79a1;
+        }
+
+        /* Section Layout */
+        section {
+            padding: 80px 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #4ba186;
+            font-weight: 700;
+        }
+
+        /* Work Section */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .work-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px #4ba186;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .work-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .work-item h3 {
+            font-size: 1.6em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .work-item p {
+            color: #777;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .work-item a {
+            padding: 4px 7px;
+            background-color: #4b79a1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .work-item a:hover {
+            background-color: #283e51;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .blog-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-item h3 {
+            font-size: 1.8em;
+            color: #4ba186;
+            margin-bottom: 15px;
+        }
+
+        .blog-item p {
+            color: #777;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color:  #4ba186;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            padding: 12px 30px;
+            background-color: #fff;
+            color:  #4ba186;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color:  #4ba186;
+            color: white;
+        }
+
+
+        /* Response Message */
+        .response-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: green;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1.2em;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 20px;
+            }
+
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .work-item,
+            #blog {
+                flex-direction: column;
+            }
+
+            .blog-item {
+                width: 100%;
+            }
+
+            .blog-item {
+                margin: 0 auto;
+            }
+
+            .work-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+    <ul>
+        <ul class=""></ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="profile-img">
+        <img src="C:\Users\LENOVO\Desktop\inter_day1\WhatsApp Image 2024-12-02 at 4.04.47 PM.jpeg" alt="Nidhi Thakkar" width="200px" height="220px">
+    </div>
+    <div class="text">
+        
+        <h1>NIDHI THAKKAR</h1>
+        <p>Head of Design at Awesome Designs</p>
+        <a href="c:\Users\LENOVO\Downloads\Nidhi Thakkar CV.pdf" class="btn">DOWNLOAD CV</a>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about">
+    <div class="section-title">
+        <h2>About</h2>
+    </div>
+    <h2>Web Development Introduction:</h2>
+    <ul>
+        <li>Web development is the process of creating and maintaining websites and web applications that run on the internet. It involves various tasks ranging from designing a website’s layout and user interface (UI) to writing code for its functionality and ensuring optimal performance.</li>
+        <li><p>Web development refers to the creating, building, and maintaining of websites. It includes aspects such as web design, web publishing, web programming, and database management. It is the creation of an application that works over the internet i.e. websites.</p></li>
+        <li><p>The word Web Development is made up of two words, that is:<br>
+        </li>Web: It refers to websites, web pages or anything that works over the internet.<br>
+        Development: It refers to building the application from scratch.</p>
+        <li><p>Web Development can be classified into two ways:<br> 
+            1. Frontend Development<br>
+            2. Backend Development</p></li>
+        
+    </ul><br>
+    <h3>Frontend Development</h3>
+    <p>The part of a website where the user interacts directly is termed as front end. It is also referred to as the ‘client side’ of the application.</p><br>
+    <h3>Backend Development</h3>
+    <p>Backend is the server side of a website. It is part of the website that users cannot see and interact with. It is the portion of software that does not come in direct contact with the users. It is used to store and arrange data.</p>
+</section>
+
+<!-- Work Section -->
+<section id="work">
+    <div class="section-title">
+        <h2>My Work</h2>
+    </div>
+    <div class="work-grid">
+        <div class="work-item">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.Db6G4-7iCWZhAtw2jDpEZAHaFq&pid=Api&P=0&h=220.jpg" alt="Work 1">
+            <h3>Edtech Website</h3>
+            <p>A kids' edtech website that helps children explore hobbies and arts.</p>
+            <a href="#">Web UI Design</a>
+            <a href="#">Visual Design</a>
+        </div>
+        <div class="work-item">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.SISMB4Ke2fuzElQPNiiuhQHaEy&pid=Api&P=0&h=220.jpg" alt="Work 2">
+            <h3>Travel Agency</h3>
+            <p>A beautiful travel agency website providing world tours.</p>
+            <a href="#">Web UI Design</a>
+            <a href="#">Visual Design</a>
+        </div>
+        <div class="work-item">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.q3AW28Ec0tD-jg9y9NAvKAHaFj&pid=Api&P=0&h=220" alt="Work 3">
+            <h3>Hospital </h3>
+            <p>A hospital is a place where a person goes to be healed when they are sick or injured.</p>
+            <a href="#">Web UI Design</a>
+            <a href="#">Visual Design</a>
+        </div>
+        <div class="work-item">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.X8HCjJ7EnxmrLpdHTZeHjwHaEQ&pid=Api&P=0&h=220" alt="Work 4">
+            <h3>Library Management</h3>
+            <p>People come to libraries for reading, study or reference.</p>
+            <a href="#">Web UI Design</a>
+            <a href="#">Visual Design</a>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog">
+    <div class="section-title">
+        <h2>Blog</h2>
+    </div>
+    <div class="blog-grid">
+        <div class="blog-item">
+            <h3>Why UX is Changing the World</h3>
+            <p>Learn how user experience is shaping modern technology.</p>
+        </div>
+        <div class="blog-item">
+            <h3>How to Become a UI/UX Designer</h3>
+            <p>Step-by-step guide on how to start your career in UI/UX design.</p>
+        </div>
+        <div class="blog-item">
+            <h3>Why UX is Changing the World</h3>
+            <p>Learn how user experience is shaping modern technology.</p>
+        </div>
+        <div class="blog-item">
+            <h3>How to Become a UI/UX Designer</h3>
+            <p>Step-by-step guide on how to start your career in UI/UX design.</p><br><br><br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+        
+    
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="subject" id="subject" placeholder="Your Subject" required>
+        <input id="message" id="message" placeholder="Your Message" required>
+
+    </input><br>
+        <button type="button" onclick="submitForm()">Send Message</button>
+    </div>
+
+    <!-- Response Message -->
+    <div class="response-message" id="responseMessage">
+        Thank you for reaching out! We will get back to you soon.
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p> All Rights Reserved</p>
+</footer>
+
+<script>
+    function submitForm() {
+        const responseMessage = document.getElementById('responseMessage');
+        responseMessage.style.display = 'block';
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+    }
+</script>
+
+</body>
+</html>
